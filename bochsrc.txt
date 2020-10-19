@@ -1,0 +1,27 @@
+# We give our system 32 Mb of RAM.
+megs: 32
+
+cpu: model=pentium_mmx, count=1, ips=50000000, reset_on_triple_fault=1, ignore_bad_msrs=1
+
+# This is the additional package we installed. We add it into our configuration.
+display_library: sdl2
+
+# This emulates a physical device and loads our bootable IMG file into that device.
+floppya: 1_44=disk.img, status=inserted    
+
+# We specify to boot from floppya.
+boot: a
+
+# VGA setup
+# vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest-cirrus
+# vga: extension=cirrus
+# pci: enabled=1, chipset=i440fx, slot1=cirrus
+
+# Logfile
+log: bochsout.txt
+
+# We don't need mouse emulation
+mouse: enabled=0
+
+# Allow xchg bx,bx to trigger a manual break
+magic_break: enabled=1
